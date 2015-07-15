@@ -6,4 +6,9 @@ class RecipesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get show" do
+  	id = Recipe.first.id
+    get :show, id: id
+    assert_response :success
+  end
 end
