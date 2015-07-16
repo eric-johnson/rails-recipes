@@ -1,4 +1,10 @@
 <h1>Recipes</h1>
 <p>This is a list of my recipes</p>
 
+<ul>
+<% @recipes.each do |recipe| %>
+  <li><%= recipe.name %> (<%= link_to 'edit', edit_recipe_path( recipe ) %>) (<%= button_to "delete", recipe, :method=>:delete %>)
+<% end %>
+</ul>
+
 <%= link_to 'This is a button to make a new recipe', new_recipe_path %>

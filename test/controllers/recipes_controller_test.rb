@@ -29,4 +29,12 @@ class RecipesControllerTest < ActionController::TestCase
 
   	assert_redirected_to recipe_path( r.id )
   end
+
+  test "should destroy" do
+    r = Recipe.create name: "Berry Smoothie", description: "with toast"
+
+  	delete :destroy, id: r.id
+
+  	assert_nil Recipe.find_by_id( r.id )
+  end
 end
