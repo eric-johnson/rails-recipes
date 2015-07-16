@@ -20,8 +20,10 @@ class RecipesController < ApplicationController
   def update
   	@recipe = Recipe.find( params[:id] )
 
-  	@recipe.name = params[:name]
-  	@recipe.description = params[:description]
+  	@recipe.name = params[:recipe][:name]
+  	@recipe.description = params[:recipe][:description]
+    @recipe.save!
+    redirect_to @recipe
   end
 
   def show
