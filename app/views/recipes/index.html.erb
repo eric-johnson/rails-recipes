@@ -3,7 +3,9 @@
 
 <ul>
 <% @recipes.each do |recipe| %>
-  <li><%= recipe.name %> (<%= link_to 'edit', edit_recipe_path( recipe ) %>) (<%= button_to "delete", recipe, :method=>:delete %>)
+  <li><%= link_to recipe.name, recipe %>
+  (<%= link_to 'edit', edit_recipe_path( recipe ) %>)
+  (<%= link_to "delete", recipe, :method=>:delete %>)
 <% end %>
 </ul>
 
