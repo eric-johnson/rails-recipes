@@ -4,10 +4,12 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @recipe = Recipe.new
+    2.times { @recipe.ingredients.build }
   end
 
   def create
-  	@recipe = Recipe.new( params.require( :recipe ).permit( :name, :description ) )
+    @recipe = Recipe.new( params.require( :recipe ).permit( :name, :description, ingredients_attributes: [:name, :magnitude, :unit] ) )
 
   	@recipe.save!
   	redirect_to @recipe

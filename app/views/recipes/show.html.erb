@@ -2,3 +2,9 @@
 <p><%= link_to 'edit', edit_recipe_path( @recipe ) %></p>
 <h1><%= @recipe.name %></h1>
 <p><%= @recipe.description %></p>
+Ingredients
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %> (<%= ingredient.magnitude %> <%= ingredient.unit %>)</li>
+  <% end %>
+</ul>
